@@ -161,12 +161,13 @@ class WeForms_Frontend_Form {
             $messageVal .= "Customer Name : " . $_POST['name']['first'] . "\n";
             $messageVal .= "Customer Email : " . $_POST['email'] . "\n";
             $messageVal .= "Customer Message : " . $_POST['message'] . "\n";
+            $messageVal .= "Customer Phone Number : " . $_POST['phone_number'] . "\n";
             $messageVal .= "Customer Address : " . $_POST['address'] . "\n";
             $messageVal .= "Best.";
             // $messageVal .= $_POST['message'];
             // $messageVal .= "\n";
 
-            wp_mail("wangstar1031@hotmail.com", "author_email", $messageVal);
+            wp_mail($_POST['author_email'], "SearchCut", $messageVal);
         }
         $author = get_the_author_meta('ID');
         if( isset($author)){
