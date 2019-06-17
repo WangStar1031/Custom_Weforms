@@ -164,10 +164,11 @@ class WeForms_Frontend_Form {
             $messageVal .= "Customer Phone Number : " . $_POST['phone_number'] . "\n";
             $messageVal .= "Customer Address : " . $_POST['address'] . "\n";
             $messageVal .= "Best.";
-            // $messageVal .= $_POST['message'];
-            // $messageVal .= "\n";
 
-            wp_mail($_POST['author_email'], "SearchCut", $messageVal);
+            $headers = [];
+            $headers[] = "From: SearchCut <info@searchcut.co.uk";
+
+            wp_mail($_POST['author_email'], "SearchCut", $messageVal, $headers);
         }
         $author = get_the_author_meta('ID');
         if( isset($author)){
